@@ -1,9 +1,11 @@
 import 'dart:ffi';
+import 'dart:io';
 
 void main() {
   double n1 = 0;
   double n2 = 0;
   String caractere = "";
+  double resultado = 0;
 
   double soma(double n1, double n2){
     return n1 + n2;
@@ -21,26 +23,30 @@ void main() {
     return n1 - n2;
   }
   
-  double? calculo(double n1, double n2, String caractere){
+  
+  print("Digite o primeiro numero: ");
+    n1 = double.parse(stdin.readLineSync()!);
+    print("Digite o segundo numero: ");
+    n2 = double.parse(stdin.readLineSync()!);
+    print("Digite o operador: ");
+    caractere = stdin.readLineSync()!;
+    
     
     switch(caractere){
       case "-":
-      return sub(n1, n2);
+       resultado = sub(n1, n2);
 
       case "+":
-      return soma(n1, n2);
+       resultado = soma(n1, n2);
 
       case "*":
-      return mut(n1, n2);
+       resultado = mut(n1, n2);
 
       case "/":
-      return mut(n1, n2);
+       resultado = div(n1, n2);
 
       default: print("nenhum numero digitado");
-
-      
     }
-  }
 
-
+    print("O resultado é: $resultado");
 }

@@ -17,7 +17,7 @@ void main(List<String> args) {
   }
 
 
-  double pontosRestantes(double pontosIniciais, double pontosResgatados){
+  double pontosRestantes(double pontosResgatados, double pontosIniciais){
     return pontosIniciais - pontosResgatados;
   }
 
