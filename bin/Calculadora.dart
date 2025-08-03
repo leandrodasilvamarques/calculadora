@@ -6,6 +6,7 @@ void main() {
   double n2 = 0;
   String caractere = "";
   double resultado = 0;
+  List <String> listaDeOperacoes = <String>["+", "-", "*", "/"];
 
   double soma(double n1, double n2){return n1 + n2;}
 
@@ -24,11 +25,14 @@ void main() {
   }
 
   String ifStringfNullOrVazio() {
-    print("Digite o operador: ");
+    print("Digite um operador ${listaDeOperacoes.toString()}: ");
     String entradaAVerificar = stdin.readLineSync()!;
 
-    if (entradaAVerificar != null && entradaAVerificar != "") return entradaAVerificar;
-    else return "";
+    if (entradaAVerificar != null && entradaAVerificar != "" && listaDeOperacoes.contains(entradaAVerificar)) {return entradaAVerificar;}
+    else {
+      print("Operação invalida");
+      return ifStringfNullOrVazio();
+      }
   }
 
   n1 = ifDoubleNullOrVazio();
