@@ -7,46 +7,49 @@ void main() {
   String caractere = "";
   double resultado = 0;
 
-  double soma(double n1, double n2){
-    return n1 + n2;
+  double soma(double n1, double n2){return n1 + n2;}
+
+  double div(double n1, double n2){return n1 / n2;}
+
+  double mut(double n1, double n2){return n1 * n2;}
+  
+  double sub(double n1, double n2){return n1 - n2;}
+  
+  double ifDoubleNullOrVazio() {
+    print("Digite o numero: ");
+    double numero = double.parse(stdin.readLineSync()!);
+
+    if (numero != null && numero != "") return numero;
+    else return 0;
   }
 
-  double div(double n1, double n2){
-    return n1 / n2;
-  }
-
-  double mut(double n1, double n2){
-    return n1 * n2;
-  }
-  
-  double sub(double n1, double n2){
-    return n1 - n2;
-  }
-  
-  
-  print("Digite o primeiro numero: ");
-    n1 = double.parse(stdin.readLineSync()!);
-    print("Digite o segundo numero: ");
-    n2 = double.parse(stdin.readLineSync()!);
+  String ifStringfNullOrVazio() {
     print("Digite o operador: ");
-    caractere = stdin.readLineSync()!;
-    
-    
-    switch(caractere){
-      case "-":
-       resultado = sub(n1, n2);
+    String entradaAVerificar = stdin.readLineSync()!;
 
-      case "+":
-       resultado = soma(n1, n2);
+    if (entradaAVerificar != null && entradaAVerificar != "") return entradaAVerificar;
+    else return "";
+  }
 
-      case "*":
-       resultado = mut(n1, n2);
+  n1 = ifDoubleNullOrVazio();
+  caractere = ifStringfNullOrVazio();
+  n2 = ifDoubleNullOrVazio();
+  
+  switch(caractere){
+    case "-":
+      resultado = sub(n1, n2);
 
-      case "/":
-       resultado = div(n1, n2);
+    case "+":
+      resultado = soma(n1, n2);
 
-      default: print("nenhum numero digitado");
-    }
+    case "*":
+      resultado = mut(n1, n2);
 
-    print("O resultado é: $resultado");
+    case "/":
+      resultado = div(n1, n2);
+
+    default: print("nenhuma operação digitada");
+  }
+
+  print("O resultado de $n1 $caractere $n2 = $resultado");
 }
