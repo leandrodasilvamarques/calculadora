@@ -4,6 +4,7 @@ void main() {
   List<String> operacoes = <String>["deposito", "saque", "transferencia", "pagamento"];
 
   void deposito(){
+    print("Valor: ");
     double quantia = double.parse(stdin.readLineSync()!);
 
     if(quantia > 0){
@@ -15,6 +16,7 @@ void main() {
   }
 
   String recebeOperacao(){
+    print("Digite a operação desejada ${operacoes.toString()}");
     String operacao = stdin.readLineSync()!;
     if(operacoes.contains(operacao)){return operacao;}
     else {
@@ -30,4 +32,6 @@ void main() {
     case "deposito":
       deposito();
   }
+
+  print("Saldo $saldo");
 }
