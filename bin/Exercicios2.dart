@@ -19,6 +19,11 @@ void main(List<String> args) {
     print("Digite o numero do mês de 1 a 12:");
     int mes = int.parse(stdin.readLineSync()!);
 
+    if(mes > 12 || mes < 1){
+      print("Mês invalido!");
+      retornandoMesesDoAno();
+    }
+
     switch(mes){
       case 1:
       print("Janeiro");
@@ -109,5 +114,5 @@ void main(List<String> args) {
   }
 
 
-  idadeParaDirigirDeCadaPais();
+  retornandoMesesDoAno();
 }

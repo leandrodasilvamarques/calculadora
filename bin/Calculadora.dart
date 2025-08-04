@@ -21,7 +21,10 @@ void main() {
     double numero = double.parse(stdin.readLineSync()!);
 
     if (numero != null && numero != "") return numero;
-    else return 0;
+    else{
+      print("Valor invalido, tente novamente!");
+      return ifDoubleNullOrVazio();
+    }
   }
 
   String ifStringfNullOrVazio() {
